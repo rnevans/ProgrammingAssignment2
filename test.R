@@ -13,3 +13,13 @@ a <- rnorm(1:10)
 z$set(a)
 b <- z$get()
 cachemean(z)
+
+
+source("cachematrix.R")
+set.seed(2)
+testMat <- matrix(rnorm(1:16), 4, 4) 
+cM <- makeCacheMatrix(testMat)
+aa <- cM$get()
+bb <- solve(aa)
+
+cacheSolve(cM)
